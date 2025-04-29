@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martins Limpeza de Vidros - Serviço Profissional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Section */
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .scroll-container {
+            scroll-snap-type: x mandatory;
+        }
+
+        .scroll-item {
+            scroll-snap-align: start;
+        }
+
+        .floating-button {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+
+        .client-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- HTML Section -->
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5511999999999?text=Olá%20Martins%20Limpeza%20de%20Vidros,%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20limpeza%20de%20vidros."
+        target="_blank"
+        class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-xl hover:bg-green-600 transition-colors z-50">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <i class="fas fa-window-maximize text-blue-600 text-3xl mr-2"></i>
+                    <span class="text-xl font-bold text-blue-800">Martins Limpeza</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">Início</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 transition-colors">Serviços</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-blue-600 transition-colors">Portfólio</a>
+                    <a href="#clients" class="text-gray-700 hover:text-blue-600 transition-colors">Clientes</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors">Contato</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white absolute w-full z-50 shadow-lg">
+            <div class="px-4 py-3 space-y-4">
+                <a href="#home" class="block text-gray-700 hover:text-blue-600 transition-colors">Início</a>
+                <a href="#services" class="block text-gray-700 hover:text-blue-600 transition-colors">Serviços</a>
+                <a href="#portfolio" class="block text-gray-700 hover:text-blue-600 transition-colors">Portfólio</a>
+                <a href="#clients" class="block text-gray-700 hover:text-blue-600 transition-colors">Clientes</a>
+                <a href="#contact" class="block text-gray-700 hover:text-blue-600 transition-colors">Contato</a>
+                <a href="https://wa.me/5511999999999?text=Olá%20Martins%20Limpeza%20de%20Vidros,%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20limpeza%20de%20vidros."
+                    target="_blank"
+                    class="block bg-blue-600 text-white px-4 py-2 rounded-lg text-center hover:bg-blue-700 transition-colors">
+                    <i class="fab fa-whatsapp mr-2"></i> Fale Conosco
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section min-h-screen flex items-center justify-center text-center text-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Martins Limpeza de Vidros</h1>
+            <p class="text-xl md:text-2xl mb-8">Deixe seus vidros brilhando como novos com nosso serviço especializado</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/5511999999999?text=Olá%20Martins%20Limpeza%20de%20Vidros,%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20limpeza%20de%20vidros."
+                    target="_blank"
+                    class="bg-green-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-green-600 transition-colors floating-button">
+                    <i class="fab fa-whatsapp mr-2"></i> Fale pelo WhatsApp
+                </a>
+                <a href="#contact" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-50 transition-colors">
+                    <i class="fas fa-phone-alt mr-2"></i> Ligue agora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">Nossos Serviços</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Oferecemos soluções completas para todos os tipos de limpeza de vidros</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition-all duration-300">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-building text-6xl text-blue-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Limpeza de Fachadas</h3>
+                        <p class="text-gray-600 mb-4">Limpeza profissional de fachadas de prédios comerciais e residenciais com equipamentos de última geração.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold">A partir de R$300</span>
+                            <a href="https://wa.me/5511999999999?text=Olá%20Martins%20Limpeza%20de%20Vidros,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Limpeza%20de%20Fachadas."
+                                target="_blank"
+                                class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition-all duration-300">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-home text-6xl text-blue-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Limpeza Residencial</h3>
+                        <p class="text-gray-600 mb-4">Janelas, portas de vidro, box de banheiro e todos os tipos de vidros em residências.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold">A partir de R$150</span>
+                            <a href="https://wa.me/5511999999999?text=Olá%20Martins%20Limpeza%20de%20Vidros,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Limpeza%20Residencial."
+                                target="_blank"
+                                class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition-all duration-300">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-store text-6xl text-blue-600"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Limpeza Comercial</h3>
+                        <p class="text-gray-600 mb-4">Vitrines, portas de vidro, divisórias e todos os tipos de vidros em estabelecimentos comerciais.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold">A partir de R$250</span>
+                            <a href="https://wa.me/5511999999999?text=Olá%20Martins%20Limpeza%20de%20Vidros,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Limpeza%20Comercial."
+                                target="_blank"
+                                class="text-blue-600 hover:text-blue-800">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="https://wa.me/5511999999999?text=Olá%20Martins%20Limpeza%20de%20Vidros,%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20limpeza%20de%20vidros."
+                    target="_blank"
+                    class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-700 transition-colors">
+                    <i class="fab fa-whatsapp mr-2"></i> Solicite um Orçamento
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">Nosso Portfólio</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Confira alguns dos nossos trabalhos realizados</p>
+            </div>
+
+            <div class="relative">
+                <div class="flex overflow-x-auto scroll-container pb-6 -mx-4 px-4">
+                    <!-- Portfolio Item 1 -->
+                    <div class="flex-none w-80 mx-2 scroll-item">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                  alt="Limpeza de Fachada"
+                                  class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold text-gray-800">Edifício Comercial</h3>
+                                <p class="text-gray-600 text-sm">Limpeza completa da fachada de vidro</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 2 -->
+                    <div class="flex-none w-80 mx-2 scroll-item">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                  alt="Limpeza Residencial"
+                                  class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold text-gray-800">Residência de Luxo</h3>
+                                <p class="text-gray-600 text-sm">Limpeza de janelas e portas de vidro</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 3 -->
+                    <div class="flex-none w-80 mx-2 scroll-item">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600566752227-868d572cd6a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                  alt="Limpeza Comercial"
+                                  class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold text-gray-800">Shopping Center</h3>
+                                <p class="text-gray-600 text-sm">Limpeza de vitrines e divisórias</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 4 -->
+                    <div class="flex-none w-80 mx-2 scroll-item">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                  alt="Limpeza de Fachada"
+                                  class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold text-gray-800">Prédio Corporativo</h3>
+                                <p class="text-gray-600 text-sm">Limpeza profissional de fachada</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 5 -->
+                    <div class="flex-none w-80 mx-2 scroll-item">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                  alt="Limpeza Residencial"
+                                  class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-lg font-semibold text-gray-800">Casa Moderna</h3>
+                                <p class="text-gray-600 text-sm">Limpeza de janelas e portas de vidro</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="https://wa.me/5511999999999?text=Olá%20Martins%20Limpeza%20de%20Vidros,%20gostaria%20de%20ver%20mais%20trabalhos%20realizados%20por%20vocês."
+                    target="_blank"
+                    class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-700 transition-colors">
+                    <i class="fas fa-images mr-2"></i> Ver Mais Trabalhos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">Nossos Clientes</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Empresas que confiam em nossos serviços</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Empresa+A" alt="Empresa A" class="h-16 client-logo">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Empresa+B" alt="Empresa B" class="h-16 client-logo">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Empresa+C" alt="Empresa C" class="h-16 client-logo">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Empresa+D" alt="Empresa D" class="h-16 client-logo">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Empresa+E" alt="Empresa E" class="h-16 client-logo">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Empresa+F" alt="Empresa F" class="h-16 client-logo">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Empresa+G" alt="Empresa G" class="h-16 client-logo">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Empresa+H" alt="Empresa H" class="h-16 client-logo">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Empresa+I" alt="Empresa I" class="h-16 client-logo">
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Empresa+J" alt="Empresa J" class="h-16 client-logo">
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="https://wa.me/5511999999999?text=Olá%20Martins%20Limpeza%20de%20Vidros,%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20para%20minha%20empresa."
+                    target="_blank"
+                    class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-700 transition-colors">
+                    <i class="fas fa-building mr-2"></i> Seja Nosso Cliente
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-blue-900 mb-4">Depoimentos</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">O que nossos clientes dizem sobre nós</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl p-6 shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Cliente" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800">Ana Carolina</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Contratei a Martins Limpeza de Vidros para limpar as janelas do meu prédio comercial e fiquei impressionada com a qualidade do serviço. Profissionais muito competentes e atenciosos."
+                    </p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl p-6 shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Cliente" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800">Carlos Eduardo</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Excelente serviço! Minha empresa contrata mensalmente e nunca tivemos problemas. Os vidros ficam impecáveis e o atendimento é de primeira qualidade."
+                    </p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-xl p-6 shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Cliente" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800">Mariana Oliveira</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Adorei o serviço na minha casa. Os profissionais foram muito cuidadosos e deixaram todas as janelas brilhando. Recomendo a todos!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Entre em Contato</h2>
+                <div class="w-20 h-1 bg-white mx-auto"></div>
+                <p class="mt-4 max-w-2xl mx-auto">Estamos prontos para atender você e sua empresa</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Informações de Contato</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-500 text-white">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-medium">Telefone</p>
+                                <p>(11) 9999-9999</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-500 text-white">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-medium">Email</p>
+                                <p>contato@martinslimpezavidros.com.br</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-500 text-white">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-medium">Endereço</p>
+                                <p>Rua Exemplo, 123 - Centro, São Paulo - SP</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold mb-4">Horário de Funcionamento</h3>
+                        <div class="bg-blue-700 p-4 rounded-lg">
+                            <div class="flex justify-between py-2 border-b border-blue-600">
+                                <span>Segunda - Sexta</span>
+                                <span class="font-medium">8:00 - 18:00</span>
+                            </div>
+                            <div class="flex justify-between py-2">
+                                <span>Sábado</span>
+                                <span class="font-medium">8:00 - 12:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Envie uma Mensagem</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="contact-name" class="block text-sm font-medium mb-1">Nome</label>
+                            <input type="text" id="contact-name" name="contact-name"
+                                    class="w-full px-4 py-3 rounded-lg border border-blue-500 bg-blue-700 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="contact-email" class="block text-sm font-medium mb-1">Email</label>
+                            <input type="email" id="contact-email" name="contact-email"
+                                    class="w-full px-4 py-3 rounded-lg border border-blue-500 bg-blue-700 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="contact-phone" class="block text-sm font-medium mb-1">Telefone</label>
+                            <input type="tel" id="contact-phone" name="contact-phone"
+                                    class="w-full px-4 py-3 rounded-lg border border-blue-500 bg-blue-700 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="contact-message" class="block text-sm font-medium mb-1">Mensagem</label>
+                            <textarea id="contact-message" name="contact-message" rows="4"
+                                      class="w-full px-4 py-3 rounded-lg border border-blue-500 bg-blue-700 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit"
+                                class="w-full bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Enviar Mensagem <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-window-maximize text-blue-400 text-3xl mr-2"></i>
+                        <span class="text-xl font-bold">Martins Limpeza</span>
+                    </div>
+                    <p class="text-blue-300 mb-4">Especialistas em limpeza profissional de vidros desde 2010.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-300 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-blue-300 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-blue-300 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-blue-300 hover:text-white transition-colors">Início</a></li>
+                        <li><a href="#services" class="text-blue-300 hover:text-white transition-colors">Serviços</a></li>
+                        <li><a href="#portfolio" class="text-blue-300 hover:text-white transition-colors">Portfólio</a></li>
+                        <li><a href="#clients" class="text-blue-300 hover:text-white transition-colors">Clientes</a></li>
+                        <li><a href="#contact" class="text-blue-300 hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Serviços</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-blue-300 hover:text-white transition-colors">Limpeza de Fachadas</a></li>
+                        <li><a href="#" class="text-blue-300 hover:text-white transition-colors">Limpeza Residencial</a></li>
+                        <li><a href="#" class="text-blue-300 hover:text-white transition-colors">Limpeza Comercial</a></li>
+                        <li><a href="#" class="text-blue-300 hover:text-white transition-colors">Manutenção de Vidros</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-blue-300 mb-4">Assine para receber nossas promoções e dicas.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Seu email"
+                                class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button type="submit"
+                                class="bg-blue-600 px-4 py-2 rounded-r-lg hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-800 mt-12 pt-8 text-center text-blue-300">
+                <p>&copy; 2023 Martins Limpeza de Vidros. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Section -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobile-menu');
+            const button = document.getElementById('mobile-menu-button');
+
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const phone = document.getElementById('contact-phone').value;
+            const message = document.getElementById('contact-message').value;
+            
+            // Here you would typically send this data to a server
+            console.log('Form submitted:', { name, email, phone, message });
+            
+            // Show success message
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
